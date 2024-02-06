@@ -1,18 +1,21 @@
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import java.util.concurrent.TimeUnit;
+import pageobject.ButtonClickPOM;
+import pageobject.MainPagePOM;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class TestFAQ {
     private final String accordionText;
     private final String accordionIndex;
+
+    private static ChromeDriver driver = null;
+
 
     public TestFAQ(String accordionText, String accordionIndex) {
         this.accordionText = accordionText;
@@ -41,19 +44,23 @@ public class TestFAQ {
                 {"Да, обязательно. Всем самокатов! И Москве, и Московской области.", "7"},
         };
     }
-
+    @Before
+    public void testStart(){
+        driver = new ChromeDriver();
+    }
     @Test
     public void checkFaqTest(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-        driver.findElement(By.className("App_CookieButton__3cvqF")).click();
-        driver.findElement(By.xpath("//div[@id=\"accordion__heading-" + accordionIndex + "\"]")).click();
-        String textCheck = driver.findElement(By.id("accordion__panel-"+accordionIndex)).getText();
+        ButtonClickPOM objCookieButton = new ButtonClickPOM(driver);
+        objCookieButton.cookieClick();
+        MainPagePOM objFaqClick = new MainPagePOM(driver);
+        objFaqClick.clickFaqField(accordionIndex);
+        String textCheck = objFaqClick.checkFaqField(accordionIndex);
         assertEquals(accordionText, textCheck);
+    }
+    @After
+    public void endTest(){
         driver.quit();
     }
+
 
 }

@@ -1,7 +1,5 @@
 package locators;
 
-import org.openqa.selenium.By;
-
 public class MainPageLocators {
     // Логотип Самоката в заголовке
     // /html/body/div/div/div/div/div/a/img[@alt="Scooter"]
@@ -12,7 +10,7 @@ public class MainPageLocators {
 
     // Кнопка "Заказать" в заголовке
     // /html/body/div/div/div/div/div/button[@class="Button_Button__ra12g"]
-    public static By headOrderButton = By.className("Button_Button__ra12g");
+    //public static By headOrderButton = By.className("Button_Button__ra12g");
 
     // Кнопка "Статус заказа" в заголовке
     // /html/body/div/div/div/div/div/button[@class="Header_Link__1TAG7"]
@@ -20,11 +18,12 @@ public class MainPageLocators {
     // Кнопка "Заказать" в теле страницы
     // /html/body/div/div/div/div/div/div[@class="Home_FinishButton__1_cWm"]/button[text()="Заказать"]
     //                   [@class="Button_Button__ra12g Button_Middle__1CSJM"] или [text()="Заказать"]
-    public static By bodyOrderButton =
-            By.xpath("//div[@class=\"Home_FinishButton__1_cWm\"]/button[text()=\"Заказать\"]");
+    //public static By bodyOrderButton =
+          //  By.xpath("//div[@class=\"Home_FinishButton__1_cWm\"]/button[text()=\"Заказать\"]");
+
 
     // Выпадающий список "Вопросы о важном"
-    // /html/body/div/div/div/div[@class="Home_FourPart__1uthg"]/div/div[@class="accordion"]
+    //public static By accordionList = (By.xpath("//div[@id=\"accordion__heading-" + accordionIndex + "\"]"));
 
     // Первый пункт списка "Вопросы о важном"
     // /html/body/div/div/div/div/div/div/div/div/div[@id="accordion__heading-0"]
