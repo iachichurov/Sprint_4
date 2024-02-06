@@ -2,7 +2,6 @@ package pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import locators.MainPageLocators;
 
 import java.util.concurrent.TimeUnit;
 
