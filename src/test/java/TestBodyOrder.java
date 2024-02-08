@@ -11,7 +11,6 @@ public class TestBodyOrder {
     String name = "Петр";
     String surname = "Петров";
     String address = "Ул. Петрова, 1";
-    String station = "Черкизовская";
     String phone = "+79999999999";
     String date = "25.02.2024";
     String period = "двое суток";
@@ -27,7 +26,7 @@ public class TestBodyOrder {
         objBodyButton.cookieClick();
         objBodyButton.clickBodyOrderButton();
         OrderPOM objOrder = new OrderPOM(driver);
-        objOrder.orderCheck(name, surname, address, station, phone, date, period);
+        objOrder.orderCheck(name, surname, address, phone, date, period);
         Assert.assertTrue(objOrder.isPopUpVisible());
     }
 

@@ -6,13 +6,13 @@ import pageobject.OrderPOM;
 import pageobject.ButtonClickPOM;
 import org.junit.Assert;
 
+
 public class TestHeaderOrder {
 
     private static ChromeDriver driver = null;
     String name = "Иван";
     String surname = "Иванов";
     String address = "Ул. Иванова, 1";
-    String station = "Лубянка";
     String phone = "+79999999999";
     String date = "15.02.2024";
     String period = "сутки";
@@ -26,7 +26,7 @@ public class TestHeaderOrder {
         ButtonClickPOM objHeaderButton = new ButtonClickPOM(driver);
         objHeaderButton.clickHeaderOrderButton();
         OrderPOM objOrder = new OrderPOM(driver);
-        objOrder.orderCheck(name, surname, address, station, phone, date, period);
+        objOrder.orderCheck(name, surname, address, phone, date, period);
         Assert.assertTrue(objOrder.isPopUpVisible());
     }
     @After
