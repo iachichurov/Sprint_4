@@ -3,21 +3,23 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class SevenTest {
-
     private static ChromeDriver driver = null;
+
     @Before
     public void testStart(){
         driver = new ChromeDriver();
     }
 
     @Test
-    public void checkOrderFromHeader() {
+    public void clickOnForumButton() {
+        // Добавлено неявное ожидание
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        // Переход на главную страницу
         driver.get("http://www.seventest.com");
+        // Клик по кнопке для перехода на форум
         driver.findElement(By.xpath("//b[text()='Форум']")).click();
     }
 
